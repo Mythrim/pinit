@@ -30,13 +30,14 @@ router.register(r'users', UserViewSet)
 
 schema_view = get_swagger_view(title='pinit APIs')
 
-
+from rest_auth import urls
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^swagger/$', schema_view),
     url(r'^api/v1/', include(authentication_urls)),
     url(r'^api/v1/', include(router.urls)),
+    url(r'^rest-auth/', include('rest_auth.urls')),
 
     url(r'^healthcheck/$', views.health_check),
 ]
