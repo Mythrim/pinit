@@ -85,8 +85,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'pinit.authentication',
     'pinit.screenshot',
-    'storages'
-
+    'storages',
 ]
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'

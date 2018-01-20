@@ -28,5 +28,4 @@ class ScreenshotViewPublic(APIView):
     def get(self,request):
         t = Screenshot.objects.all()
         data = request.GET
-        print t[0].img, "HERE"
         return render(request, 'dashboard.html', {'data': t})

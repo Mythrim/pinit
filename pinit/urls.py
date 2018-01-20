@@ -43,7 +43,6 @@ urlpatterns = [
     url(r'^screenshot/',ScreenshotView.as_view()),
     url(r'^public/', ScreenshotViewPublic.as_view()),
     # url(r'^private/'),
-
     url(r'^healthcheck/$', views.health_check),
 ]
 
