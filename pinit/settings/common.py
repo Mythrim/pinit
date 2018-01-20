@@ -84,9 +84,17 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'rest_framework.authtoken',
     'pinit.authentication',
-    'pinit.screenshot'
+    'pinit.screenshot',
+    'storages'
 
 ]
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_S3_SECURE_URLS = False       # use http instead of https
+AWS_QUERYSTRING_AUTH = False     # don't add complex authentication-related query parameters for requests
+AWS_S3_ACCESS_KEY_ID = 'AKIAJO44AKSABKP3A47Q'     # enter your access key id
+AWS_S3_SECRET_ACCESS_KEY = 'yIPG9zzcXdw3SZuTgsnDLdHKBcjy2npo+TuReEu8' # enter your secret access key
+AWS_STORAGE_BUCKET_NAME = 'publicpinitbucket'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
