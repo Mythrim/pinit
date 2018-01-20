@@ -160,6 +160,16 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+	    'NAME': os.environ.get('DBNAME', 'dbtssi59ctrd18'),
+        'USER': os.environ.get('DBUSER', 'sklzgshovvpbxk'),
+        'PASSWORD': os.environ.get('DBPASSWORD', '15c57827591dd56be9b1d7049d053d98cfdc3204e771a9cc16d5b188bbe0ddc2'),
+        'HOST': os.environ.get('DBHOST', 'ec2-54-243-253-24.compute-1.amazonaws.com'),
+        'PORT': os.environ.get('DBPORT', '5432'),
+    }
+}
 
 # Use the database configuration defined in environment variable DATABASE_URL
 db_from_env = dj_database_url.config(conn_max_age=500)
