@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
     .row.content {height: 1500px}
@@ -42,8 +44,8 @@
       <h4>Dashboard</h4>
       <ul class="nav nav-pills nav-stacked">
         <li class="active"><a href="section1">Home</a></li>
-        <li><a href="section2">Private</a></li>
-        <li><a href="section3">Public</a></li>
+        <li><a class ="private">Private</a></li>
+        <li><a class ="public">Public</a></li>
       </ul><br>
     </div>
     <div class="col-sm-9 ">
@@ -56,7 +58,7 @@
         <div class="row">
           <div class="col-sm-6">
             <p>Some text..</p>
-            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+            <img src="http://publicpinitbucket.s3.amazonaws.com{{d.img}}" class="img-responsive" style="width:100%" alt="Image">
           </div>
       </div>
       </div>

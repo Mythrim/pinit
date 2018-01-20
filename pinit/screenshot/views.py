@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.shortcuts import render
 
@@ -26,7 +27,13 @@ class ScreenshotView(APIView):
 class ScreenshotViewPublic(APIView):
 
     def get(self,request):
-        t = Screenshot.objects.all()
+        t = Screenshot.objects.filter(private=False)
         data = request.GET
-        print t[0].img, "HERE"
         return render(request, 'dashboard.html', {'data': t})
+
+
+class ScreenshotViewPrivate(APIView):
+
+    def get(self, request):
+        data = Screenshot.objects.filter(user=request.GET.get(User))
+        return render(request,'dashboard.html', {'data': data})

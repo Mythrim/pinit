@@ -15,7 +15,9 @@ Including another URLconf
 """
 from __future__ import unicode_literals, absolute_import
 
-from pinit.screenshot.views import ScreenshotView, ScreenshotViewPublic
+from .screenshot.views import ScreenshotView, ScreenshotViewPublic
+
+from .screenshot.views import ScreenshotViewPrivate
 from . import views
 
 from django.conf.urls import url, include
@@ -37,12 +39,12 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^swagger/$', schema_view),
-    url(r'^api/v1/', include(authentication_urls)),
-    url(r'^api/v1/', include(router.urls)),
+    #url(r'^api/v1/', include(authentication_urls)),
+    #url(r'^api/v1/', include(router.urls)),
     url(r'^rest-auth/', include('rest_auth.urls')),
     url(r'^screenshot/',ScreenshotView.as_view()),
     url(r'^public/', ScreenshotViewPublic.as_view()),
-    # url(r'^private/'),
+     url(r'^private/', ScreenshotViewPrivate.as_view()),
 
     url(r'^healthcheck/$', views.health_check),
 ]
