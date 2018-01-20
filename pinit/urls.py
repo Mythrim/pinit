@@ -14,6 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from __future__ import unicode_literals, absolute_import
+
+from pinit.screenshot.views import ScreenshotView, ScreenshotViewPublic
 from . import views
 
 from django.conf.urls import url, include
@@ -38,6 +40,9 @@ urlpatterns = [
     url(r'^api/v1/', include(authentication_urls)),
     url(r'^api/v1/', include(router.urls)),
     url(r'^rest-auth/', include('rest_auth.urls')),
+    url(r'^screenshot/',ScreenshotView.as_view()),
+    url(r'^public/', ScreenshotViewPublic.as_view()),
+    # url(r'^private/'),
 
     url(r'^healthcheck/$', views.health_check),
 ]
